@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { showNotify } from 'vant'
-import 'vant/es/notify/style'
+import { ElMessage } from 'element-plus'
 
 const service = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -24,7 +23,7 @@ service.interceptors.response.use(
         return response.data
     },
     (error) => {
-        showNotify({ type: 'danger', message: error.message || 'Request Error' })
+        ElMessage.error(error.message || 'Request Error')
         return Promise.reject(error)
     }
 )

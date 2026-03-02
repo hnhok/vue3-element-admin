@@ -4,7 +4,7 @@
  * ✏️  请在 // BUSINESS LOGIC 区块内填写核心业务逻辑
  */
 import { ref, reactive, onMounted } from 'vue'
-import { showToast } from 'vant'
+import { ElMessage } from 'element-plus'
 import { getUserProfile } from '@/api/user-profile'
 // import { updateUserInfo } from '@/api/user-profile' // 取消注释后可用
 
@@ -28,7 +28,7 @@ export function useUserProfile() {
       Object.assign(userProfileData, res?.data ?? res)
     } catch (e: any) {
       error.value = e?.message || '数据加载失败'
-      showToast({ type: 'fail', message: error.value ?? '未知错误' })
+      ElMessage.error(error.value ?? '未知错误')
       console.error('[UserProfile] fetchData error:', e)
     } finally {
       loading.value = false

@@ -4,7 +4,7 @@
  * ✏️  请在 // BUSINESS LOGIC 区块内填写核心业务逻辑
  */
 import { ref, reactive, onMounted } from 'vue'
-import { showToast } from 'vant'
+import { ElMessage } from 'element-plus'
 import { getOrderDetail } from '@/api/order-detail'
 // import { updateOrderStatus, cancelOrder } from '@/api/order-detail' // 取消注释后多个接口可用
 
@@ -28,7 +28,7 @@ export function useOrderDetail() {
       Object.assign(orderDetailData, res?.data ?? res)
     } catch (e: any) {
       error.value = e?.message || '数据加载失败'
-      showToast({ type: 'fail', message: error.value ?? '未知错误' })
+      ElMessage.error(error.value ?? '未知错误')
       console.error('[OrderDetail] fetchData error:', e)
     } finally {
       loading.value = false
