@@ -8,12 +8,15 @@ api_endpoints:
   - updateOrderStatus
   - cancelOrder
 components:
-  - VanNavBar
-  - VanCell
-  - VanCellGroup
-  - VanButton
-  - StatusBadge
-  - VanActionSheet
+  - ElPageHeader
+  - ElCard
+  - ElDescriptions
+  - ElDescriptionsItem
+  - ElTable
+  - ElTableColumn
+  - ElButton
+  - ElTag
+  - ElDialog
 auth:
   - admin
   - manager
@@ -21,7 +24,7 @@ track:
   - order-cancel-click
   - status-update-click
   - order-print-click
-version: "1.0"
+version: "1.1"
 ---
 
 ## 功能描述
